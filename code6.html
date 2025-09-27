@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Topic Subcontent Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 30px;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    ul {
+      margin-top: 20px;
+      list-style: disc;
+      padding-left: 20px;
+    }
+    #results p {
+      margin-top: 20px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Topic Subcontent Generator</h1>
+    <p>Type a topic (e.g., bike, time management, computer):</p>
+    <input type="text" id="topicInput" placeholder="Enter a topic..." />
+    <button onclick="generateSubtopics()">Generate</button>
+    <div id="results"></div>
+  </div>
+
+  <script>
+    const topicDatabase = {
+      bike: [
+        "Introduction to Bikes",
+        "Types of Bikes",
+        "Main Bike Parts",
+        "How Bikes Work",
+        "Bike Maintenance Tips"
+      ],
+      car: [
+        "Introduction to Cars",
+        "Types of Cars",
+        "Engine and Transmission",
+        "Car Safety Features",
+        "Electric vs Petrol Cars"
+      ],
+      computer: [
+        "What is a Computer?",
+        "Types of Computers",
+        "Main Components (CPU, RAM, etc.)",
+        "Software vs Hardware",
+        "Future of Computing"
+      ],
+      "time management": [
+        "Introduction to Time Management",
+        "Benefits of Time Management",
+        "Common Time Wasters",
+        "Time Management Techniques",
+        "Creating a Daily Routine"
+      ],
+      internet: [
+        "What is the Internet?",
+        "How the Internet Works",
+        "Wi-Fi vs Mobile Data",
+        "Internet Safety & Privacy",
+        "Uses of the Internet"
+      ],
+      mobile: [
+        "Introduction to Mobile Phones",
+        "Types of Mobile Operating Systems",
+        "Smartphone Components",
+        "Popular Mobile Brands",
+        "Tips for Buying a Phone"
+      ]
+    };
+
+    function generateSubtopics() {
+      const input = document.getElementById("topicInput").value.trim().toLowerCase();
+      const resultsDiv = document.getElementById("results");
+      resultsDiv.innerHTML = "";
+
+      if (input === "") {
+        resultsDiv.innerHTML = "<p>Please enter a topic.</p>";
+        return;
+      }
+
+      // Try exact match first
+      if (topicDatabase[input]) {
+        displaySubtopics(topicDatabase[input]);
+        return;
+      }
+
+      // Try flexible/partial match
+      const matchedKey = Object.keys(topicDatabase).find(key => input.includes(key) || key.includes(input));
+
+      if (matchedKey) {
+        displaySubtopics(topicDatabase[matchedKey]);
+      } else {
+        resultsDiv.innerHTML = <p>No data found for "<strong>${input}</strong>". Try a common topic like <em>bike</em>, <em>car</em>, <em>computer</em>, or <em>time management</em>.</p>;
+      }
+    }
+
+    function displaySubtopics(subtopics) {
+      const ul = document.createElement("ul");
+      subtopics.forEach(topic => {
+        const li = document.createElement("li");
+        li.textContent = topic;
+        ul.appendChild(li);
+      });
+      document.getElementById("results").appendChild(ul);
+    }
+  </script>
+</body>
+</html>

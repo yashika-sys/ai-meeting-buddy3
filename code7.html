@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Meeting Buddy - Meeting Room</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+    video {
+      width: 70%;
+      max-width: 600px;
+      border: 3px solid #333;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    h1 { color: #1e293b; }
+  </style>
+</head>
+<body>
+  <h1>🎥 AI Meeting Buddy - Meeting Room</h1>
+  <p>Your camera and microphone will start automatically.</p>
+  <video id="videoElement" autoplay playsinline></video>
+
+  <script>
+    async function startMedia() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        document.getElementById('videoElement').srcObject = stream;
+      } catch (err) {
+        alert("Error: " + err.message + "\nMake sure you allow camera/microphone access.");
+        console.error(err);
+      }
+    }
+
+    // Automatically start camera/microphone when page loads
+    window.onload = startMedia;
+  </script>
+</body>
+</html>

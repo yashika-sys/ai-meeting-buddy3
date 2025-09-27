@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Meeting Buddy</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f1f5f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .homepage {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      color: #1e293b;
+    }
+
+    .home-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .option {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .option:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .option h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      color: #0f172a;
+    }
+
+    .option p {
+      font-size: 0.95rem;
+      color: #475569;
+      margin-bottom: 1.2rem;
+    }
+
+    .option button {
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s ease;
+      color: #fff;
+    }
+
+    .start button {
+      background-color: #3b82f6;
+    }
+    .start button:hover {
+      background-color: #2563eb;
+    }
+
+    .join button {
+      background-color: #10b981;
+    }
+    .join button:hover {
+      background-color: #059669;
+    }
+
+    .schedule button {
+      background-color: #f59e0b;
+    }
+    .schedule button:hover {
+      background-color: #d97706;
+    }
+
+    .share button {
+      background-color: #ef4444;
+    }
+    .share button:hover {
+      background-color: #dc2626;
+    }
+
+    .agenda button {
+      background-color: #6366f1;
+    }
+    .agenda button:hover {
+      background-color: #4f46e5;
+    }
+  </style>
+</head>
+<body>
+  <!-- Homepage Section -->
+  <section class="homepage">
+    <h2>Welcome to AI Meeting Buddy</h2>
+    <div class="home-options">
+      <div class="option start">
+        <h3>🚀 Start Meeting</h3>
+        <p>Quickly start a new meeting with AI assistance.</p>
+        <button onclick="window.open('yass_app.html', '_blank')">Start</button>
+      </div>
+      <div class="option join">
+        <h3>🔗 Join Meeting</h3>
+        <p>Join an existing meeting using a link or code.</p>
+        <button onclick="alert('Joining meeting...')">Join</button>
+      </div>
+      <div class="option schedule">
+        <h3>📅 Schedule Meeting</h3>
+        <p>Plan your future meetings and set reminders.</p>
+        <button onclick="alert('Scheduling meeting...')">Schedule</button>
+      </div>
+      <div class="option share">
+        <h3>📤 Share Meeting</h3>
+        <p>Share meeting details with participants easily.</p>
+        <button onclick="alert('Sharing meeting...')">Share</button>
+      </div>
+      <div class="option agenda">
+        <h3>📝 AI Agenda</h3>
+        <p>Generate and manage meeting agendas with AI assistance.</p>
+        <button onclick="window.location.href='code6.html'">Generate</button>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
